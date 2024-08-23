@@ -33,12 +33,12 @@ const App = () => {
       className={`mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 ${formatBackground()}`}
     >
       <TopButtons setQuery={setQuery} />
-      <Inputs />
+      <Inputs setQuery={setQuery} setUnits={setUnits} />
 
       {weather && (
         <>
           <TimeAndLocation weather={weather} />
-          <TempAndDetails weather={weather} />
+          <TempAndDetails weather={weather} units={units} />
           <Forecast title="3 hours step forecast" data={weather.hourly} />
           <Forecast title="daily forecast" data={weather.daily} />
         </>
