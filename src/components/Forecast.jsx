@@ -1,11 +1,10 @@
-const Forecast = () => {
-    
-    const data = [1, 2, 3, 4, 5];
+/* eslint-disable react/prop-types */
 
+const Forecast = ({title, data}) => {
     return (
       <div>
         <div className="flex items-center justify-start mt-6">
-          <p className="font-medium uppercase">3 hour step forcast</p>
+          <p className="font-medium uppercase">{title}</p>
         </div>
         <hr className="my-1" />
 
@@ -15,13 +14,9 @@ const Forecast = () => {
               key={index}
               className="flex flex-col items-center justify-center"
             >
-              <p className="font-light text-sm">Wed</p>
-              <img
-                src="http://openweathermap.org/img/wn/01d@2x.png"
-                alt="weather icon"
-                className="w-12 my-1"
-              />
-              <p className="font-medium">12°</p>
+              <p className="font-light text-sm">{d.title}</p>
+              <img src={d.icon} alt="weather icon" className="w-12 my-1" />
+              <p className="font-medium"> {`${d.temp.toFixed()}°`}</p>
             </div>
           ))}
         </div>
