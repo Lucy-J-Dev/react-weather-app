@@ -6,15 +6,29 @@ import TimeAndLocation from "./components/TimeAndLocation";
 import TopButtons from "./components/TopButtons";
 import getFormattedWeatherData from "./services/weatherService";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const capitalizeFirstLetter = (str = "") =>
+  str.charAt(0).toUpperCase() + str.slice(1);
+
 const App = () => {
   const [query, setQuery] = useState({ q: "pasto" });
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
   const getWeather = async () => {
-    await getFormattedWeatherData({ ...query, units }).then((data) =>
-      setWeather(data)
+    const message = query.q ? query.q : "current location";
+    toast.info(
+      `Recuperando información del clima de ${capitalizeFirstLetter(message)}`
     );
+
+    await getFormattedWeatherData({ ...query, units }).then((data) => {
+      toast.success(
+        `Información del clima recuperada para ${data.name}, ${data.country}`
+      );
+      setWeather(data);
+    });
   };
 
   const formatBackground = () => {
@@ -43,6 +57,8 @@ const App = () => {
           <Forecast title="daily forecast" data={weather.daily} />
         </>
       )}
+
+      <ToastContainer autoClose={2500} hideProgressBar={true} />
     </div>
   );
 };
