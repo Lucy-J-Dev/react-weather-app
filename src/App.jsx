@@ -1,4 +1,5 @@
 import Inputs from "./components/Inputs";
+import TempAndDetails from "./components/TempAndDetails";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TopButtons from "./components/TopButtons";
 
@@ -9,6 +10,7 @@ const App = () => {
       <Inputs />
 
       <TimeAndLocation />
+      <TempAndDetails /> 
     </div>
   );
 };
