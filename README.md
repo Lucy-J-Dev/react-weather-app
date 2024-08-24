@@ -4,6 +4,8 @@ Este proyecto se realiza siguiendo las instrucciones del [este videotutorial](ht
 
 Se usa la API de clima en [openweathermap.org](https://openweathermap.org/api)
 
+![Vista previa del proyecto finalizado](./public/preview.png "app del clima")
+
 ## Tecnologías usadas
 - **HTML, CSS y Javascript**
 - **Vite**
