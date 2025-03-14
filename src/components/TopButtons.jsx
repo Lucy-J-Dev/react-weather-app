@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 const TopButtons = ({ setQuery }) => {
   const cities = [
     { id: 1, name: "London" },

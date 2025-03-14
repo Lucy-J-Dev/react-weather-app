@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { useState } from "react";
 import { BiSearch, BiCurrentLocation } from "react-icons/bi";
 
@@ -8,16 +6,16 @@ const Inputs = ({ setQuery, setUnits }) => {
 
   const handleSearchClick = () => {
     if (city !== "") setQuery({ q: city });
-  }
+  };
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords
+        const { latitude, longitude } = position.coords;
         setQuery({ lat: latitude, lon: longitude });
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="flex flex-row justify-center my-6">
@@ -43,10 +41,7 @@ const Inputs = ({ setQuery, setUnits }) => {
       </div>
 
       <div className="flex flex-row w-1/4 items-center justify-center">
-        <button
-          className="text-2xl font-medium transition ease-out hover:scale-125"
-          onClick={() => setUnits("metric")}
-        >
+        <button className="text-2xl font-medium transition ease-out hover:scale-125" onClick={() => setUnits("metric")}>
           °C
         </button>
         <p className="text-2xl font-medium mx-1">|</p>

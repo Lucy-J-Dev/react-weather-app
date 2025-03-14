@@ -9,8 +9,7 @@ import getFormattedWeatherData from "./services/weatherService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const capitalizeFirstLetter = (str = "") =>
-  str.charAt(0).toUpperCase() + str.slice(1);
+const capitalizeFirstLetter = (str = "") => str.charAt(0).toUpperCase() + str.slice(1);
 
 const App = () => {
   const [query, setQuery] = useState({ q: "pasto" });
@@ -19,14 +18,10 @@ const App = () => {
 
   const getWeather = async () => {
     const message = query.q ? query.q : "current location";
-    toast.info(
-      `Recuperando información del clima de ${capitalizeFirstLetter(message)}`
-    );
+    toast.info(`Recuperando información del clima de ${capitalizeFirstLetter(message)}`);
 
     await getFormattedWeatherData({ ...query, units }).then((data) => {
-      toast.success(
-        `Información del clima recuperada para ${data.name}, ${data.country}`
-      );
+      toast.success(`Información del clima recuperada para ${data.name}, ${data.country}`);
       setWeather(data);
     });
   };
